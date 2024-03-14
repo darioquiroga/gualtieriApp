@@ -1,0 +1,8 @@
+{
+  "name": "GualtieriEhijos",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

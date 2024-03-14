@@ -1,0 +1,180 @@
+<ion-header >
+
+  <ion-toolbar>
+
+    <ion-buttons slort="start">
+      <ion-menu-button  menu="menuPrincipal"></ion-menu-button>
+     <ion-title style="font-size: 1.1rem; padding-inline: 0px;">{{usuarioActivo.nombre}}</ion-title>
+
+ <app-header-component
+        *ngIf="notificaciones"
+        [headerText]="''"
+        [numeroMensajes]="ver ? numeroMensajes : numeroMensajes">
+      </app-header-component>
+
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+
+
+  <!--
+
+    <div class="scrolling-wrapper">
+    <div class="cardHscroll">
+      <ion-button class="button-services"  >
+        <a href="https://martinoentregas.com.ar/tipos-de-camiones/" target="_blank">
+          <ion-img  src="../../../assets/icon/icono_01_a.png"></ion-img>
+        </a>
+      </ion-button>
+
+    </div>
+
+    <div class="cardHscroll">
+      <ion-button class="button-services"  >
+        <a href="https://martinoentregas.com.ar/posicion-de-camiones/" target="_blank">
+        <ion-img  src="../../../assets/icon/icono_02_a.png"></ion-img>
+      </a>
+      </ion-button>
+      </div>
+    <div class="cardHscroll">
+      <ion-button class="button-services"  >
+        <a href="https://martinoentregas.com.ar/posicion-de-camiones/" target="_blank">
+        <ion-img  src="../../../assets/icon/icono_03_a.png"></ion-img>
+
+      </a>
+      </ion-button>
+
+    </div>
+    <div class="cardHscroll">
+      <ion-button class="button-services"  >
+        <a href="https://martinoentregas.com.ar/horarios-cupos-cosecha/" target="_blank">
+        <ion-img  src="../../../assets/icon/icono_04_a.png"></ion-img>
+      </a>
+      </ion-button>
+
+    </div>
+    <div class="cardHscroll">
+      <ion-button class="button-services"  >
+       <a href=" https://martinoentregas.com.ar/horarios-de-cupos-de-fin-de-semana/" target="_blank">
+        <ion-img  src="../../../assets/icon/icono_05_a.png"></ion-img>
+      </a>
+      </ion-button>
+
+    </div>
+    <div class="cardHscroll">
+      <ion-button class="button-services"  >
+        <a href="https://martinoentregas.com.ar/wp-content/uploads/2021/11/Martino-Entregas_N-de-Planta-y-Destinos.pdf" target="_blank">
+          <ion-img  src="../../../assets/icon/icono_06_a.png"></ion-img>
+        </a>
+      </ion-button>
+
+    </div>
+
+  </div>
+  -->
+
+  <ion-card *ngIf="cantidadTodos > 0" color="secondary" (click) ="iraTodos()">
+    <ion-card-header>
+      <ion-card-subtitle>Total de Camiones</ion-card-subtitle>
+      <ion-card-title style="font-size: 30px;">{{cantidadTodos}}</ion-card-title>
+     </ion-card-header>
+  </ion-card>
+
+  <ion-card color="danger" *ngIf="cantidadIncidencias > 0" (click) ="iraIncidencias()">
+    <ion-card-header>
+      <ion-card-subtitle>Incidencias</ion-card-subtitle>
+      <ion-card-title   style="font-size: 30px;"> {{cantidadIncidencias}}</ion-card-title>
+
+      </ion-card-header>
+  </ion-card>
+
+<!--
+  <div class="scrolling-wrapper" style="text-align: center;">
+    <div class="cardHscroll">
+      <ion-button class="button-services"  >
+        <a href="https://martinoentregas.com.ar/tipos-de-camiones/" target="_blank">
+          <ion-img  src="../../../assets/icon/icono_01_a.png"></ion-img>
+        </a>
+      </ion-button>
+
+    </div>
+
+    <div class="cardHscroll">
+      <ion-button class="button-services"  >
+        <a href="https://martinoentregas.com.ar/posicion-de-camiones/" target="_blank">
+        <ion-img  src="../../../assets/icon/icono_02_a.png"></ion-img>
+      </a>
+      </ion-button>
+      </div>
+    <div class="cardHscroll">
+      <ion-button class="button-services"  >
+        <a href="https://martinoentregas.com.ar/condiciones-de-recibo/" target="_blank">
+        <ion-img  src="../../../assets/icon/icono_03_a.png"></ion-img>
+
+      </a>
+      </ion-button>
+
+    </div>
+    <div class="cardHscroll">
+      <ion-button class="button-services"  >
+        <a href="https://martinoentregas.com.ar/horarios-cupos-cosecha/" target="_blank">
+        <ion-img  src="../../../assets/icon/icono_04_a.png"></ion-img>
+      </a>
+      </ion-button>
+
+    </div>
+    <div class="cardHscroll">
+      <ion-button class="button-services"  >
+       <a href=" https://martinoentregas.com.ar/horarios-de-cupos-de-fin-de-semana/" target="_blank">
+        <ion-img  src="../../../assets/icon/icono_05_a.png"></ion-img>
+      </a>
+      </ion-button>
+
+    </div>
+    <div class="cardHscroll">
+      <ion-button class="button-services"  >
+        <a href="https://martinoentregas.com.ar/wp-content/uploads/2021/11/Martino-Entregas_N-de-Planta-y-Destinos.pdf" target="_blank">
+          <ion-img  src="../../../assets/icon/icono_06_a.png"></ion-img>
+        </a>
+      </ion-button>
+
+    </div>
+
+  </div>
+-->
+
+
+
+
+
+<!--<ion-tabs>
+    <ion-tab-bar slot="bottom">
+
+
+      <ion-tab-button tab="todo">
+        <ion-icon name="reorder-four-outline"aria-hidden="true"></ion-icon>
+
+        <ion-label>Todas las cartas</ion-label>
+        <ion-badge  *ngIf="cantidadTodos" color="success">{{cantidadTodos}}</ion-badge>
+      </ion-tab-button>
+
+      <ion-tab-button tab="incidencias">
+
+        <ion-icon name="warning-outline"  aria-hidden="true"></ion-icon>
+        <ion-label>Incidencias</ion-label>
+        <ion-badge *ngIf="cantidadIncidencias" color="danger">{{cantidadIncidencias}}</ion-badge>
+      </ion-tab-button>
+
+
+
+
+    </ion-tab-bar>
+  </ion-tabs>-->
+</ion-content>
+
+
+
+
